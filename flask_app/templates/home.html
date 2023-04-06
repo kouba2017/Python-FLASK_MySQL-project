@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+</head>
+<body>
+    <h1 style="color: blueviolet;">TV Shows!</h1>
+    <div class="d-flex justify-content-around">
+        <div id="register" class="col-5 bg-dark text-light text-center my-5 p-4">
+            <h1 class="text-primary">Register</h1>
+            {% for message in get_flashed_messages(category_filter=["register"])%}
+                <p class="text-danger">{{message}}</p>
+            {%endfor%}
+            <form action="/register" method="post">
+                <div class="form-group" >
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                </div>
+                <div class="form-group" > 
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                </div>
+                <div class="form-group" >
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form-group" >
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                </div>
+                <div class="form-group" >
+                    <label for="confirm_password">Confirm PW:</label>
+                    <input type="password" name="confirm_password">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="Login" class="col-4 bg-dark text-light text-center my-5 p-4">
+            <h1 class="text-success">Login</h1>
+            {% for message in get_flashed_messages(category_filter=["login"])%}
+                <p class="text-danger">{{message}}</p>
+            {%endfor%}
+            <form action="/login" method="post">
+                <div class="form-group" >
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form-group" >
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                </div>
+                <input class="btn btn-success"  type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
